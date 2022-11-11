@@ -1,0 +1,43 @@
+{%extends "plantilla.html"%}
+
+{% block titulo %}
+Gestión de materias
+{% endblock %}
+
+{% block contenido %} 
+<div>
+      <table class="table" style="text-align: center">
+            <thead>
+              <tr class="table-success">
+                <th scope="col">id</th>
+                <th scope="col">Nombre de la materia</th>
+                <th scope="col">Cantidad de Créditos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Python</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Java</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Swift</td>
+                <td>5</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+
+<div>
+      <h2>Ingreso Materias</h2>
+      <form action=""></form>
+</div>
+
+
+{% endblock %}

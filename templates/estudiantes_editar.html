@@ -1,0 +1,79 @@
+{% extends "plantilla.html" %}
+
+{% block titulo %}
+Editando al estudiante '{{modelo.estudiante.1}} {{modelo.estudiante.2}}'
+{% endblock %}
+
+{% block contenido %}
+<a href="/admin/estudiantes/eliminar/{{modelo.estudiante.0}}" class="btn btn-danger mb-3">Eliminar estudiante</a>
+
+<form action="/admin/estudiantes/actualizar" method="post">
+    <div class="mb-3">
+        <label for="exampleInputCodigo" class="form-label">Código</label>
+        <input type="text" class="form-control" id="exampleInputCodigo" name="codigo"
+               value="{{modelo.estudiante.0}}" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputNombres" class="form-label">Nombres</label>
+        <input type="text" class="form-control" id="exampleInputNombres" name="nombres"
+        value="{{modelo.estudiante.1}}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputApellidos" class="form-label">Apellidos</label>
+        <input type="text" class="form-control" id="exampleInputApellidos" name="apellidos"
+        value="{{modelo.estudiante.2}}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputCorreo" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" id="exampleInputCorreo" name="correo"
+        value="{{modelo.estudiante.3}}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputTelefonos" class="form-label">Teléfono</label>
+        <input type="text" class="form-control" id="exampleInputTelefono" name="telefono"
+        value="{{modelo.estudiante.4}}">
+    </div>
+    <div style="text-align: end;">
+        <button type="submit" class="btn btn-success">Actualizar estudiante</button>
+    </div>
+</form>
+{% endblock contenido %}{% extends "plantilla.html" %}
+
+{% block titulo %}
+Editando al estudiante '{{modelo.estudiante.1}} {{modelo.estudiante.2}}'
+{% endblock %}
+
+{% block contenido %}
+<a href="/admin/estudiantes/eliminar/{{modelo.estudiante.0}}" class="btn btn-danger mb-3">Eliminar estudiante</a>
+
+<form action="/admin/estudiantes/actualizar" method="post">
+    <div class="mb-3">
+        <label for="exampleInputCodigo" class="form-label">Código</label>
+        <input type="text" class="form-control" id="exampleInputCodigo" name="codigo"
+               value="{{modelo.estudiante.0}}" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputNombres" class="form-label">Nombres</label>
+        <input type="text" class="form-control" id="exampleInputNombres" name="nombres"
+        value="{{modelo.estudiante.1}}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputApellidos" class="form-label">Apellidos</label>
+        <input type="text" class="form-control" id="exampleInputApellidos" name="apellidos"
+        value="{{modelo.estudiante.2}}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputCorreo" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" id="exampleInputCorreo" name="correo"
+        value="{{modelo.estudiante.3}}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputTelefonos" class="form-label">Teléfono</label>
+        <input type="text" class="form-control" id="exampleInputTelefono" name="telefono"
+        value="{{modelo.estudiante.4}}">
+    </div>
+    <div style="text-align: end;">
+        <button type="submit" class="btn btn-success">Actualizar estudiante</button>
+    </div>
+</form>
+{% endblock contenido %}

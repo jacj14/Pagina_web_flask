@@ -1,0 +1,85 @@
+{% extends 'plantilla.html' %}
+
+{% block titulo %}
+Matriculas de los estudiantes
+{% endblock titulo %}
+
+{% block contenido %}
+
+<form method="post" action="/matriculas/buscar" class="row">
+    <label for="search" class="form-label col-1">Código</label>
+    <input id="search" type="text" class="form-control col" name="codigo">
+    <button type="submit" class="btn btn-primary col-1">Buscar</button>
+</form>
+
+{% if modelo and modelo.estudiante %}
+<div class="card mt-5">
+    <div class="card-body">
+        <h5 class="card-title">{{modelo.estudiante.1}} {{modelo.estudiante.2}}</h5>
+        <p class="card-text">
+            <b>Código</b>: {{modelo.estudiante.0}}<br>
+            <b>Correo Electrónico</b>: {{modelo.estudiante.3}}<br>
+            <b>Teléfono</b>: {{modelo.estudiante.4}}
+        </p>
+    </div>
+</div>
+
+<table class="table mt-5 col">
+    <thead class="text-center">
+        <tr>
+            <th colspan="3">Matricula de materias del estudiante</th>
+        </tr>
+        <tr>
+            <th>Materia</th>
+            <th>Creditos</th>
+            <th style="width: 200px;">Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if modelo.materias_estudiante %}
+        {% for materia in modelo.materias_estudiante %}
+        <tr>
+            <td>{{materia.1}}</td>
+            <td class="text-right">{{materia.2}}</td>
+            <td>
+                <a href="/matriculas/eliminar/{{modelo.estudiante.0}}/{{materia.0}}" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>            
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">No ha matriculado ninguna materia</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+<hr>
+{% if modelo.exito %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ modelo.exito }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+{% if modelo.error %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ modelo.error }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+<h3>Materias a matricular</h3>
+<form method="post" action="/matriculas/agregar" class="row">
+    <input type="hidden" name="codigo" value="{{modelo.estudiante.0}}">
+
+    <label class="form-label col-1">Materia</label>
+    <select class="select form-control col" name="materia">
+        {% for materia in modelo.materias %}
+            <option value="{{materia.0}}" > {{materia.1}} ({{materia.2}})</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="btn btn-primary col-1">Matricular</button>
+</form>
+
+
+{% endif %}
+
+{% endblock contenido %}
